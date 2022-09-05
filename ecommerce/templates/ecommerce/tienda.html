@@ -1,0 +1,35 @@
+{% extends 'ecommerce/main.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+	{% for producto in productos %}
+      <div class="col-lg-4">
+        <img class="thumbnail" src="{{producto.URLimagen}}">
+		<div class="box-element product">
+			<h6><strong>{{producto.nombre}}</strong></h6>
+			<h6><strong>{{producto.categoria}}</strong></h6>
+			<hr>
+			<button  data-producto="{{producto.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Agregar al Carrito</button>
+			<h4 style="display: inline-block; float: right"><strong>${{producto.precio}}</strong></h4>
+	     </div>
+     </div>
+{% endfor %}
+</div>
+
+<h3>Recomendaciones</h3>
+<div class="row">
+	{% for producto in recomendaciones %}
+      <div class="col-lg-4">
+        <img class="thumbnail" src="{{producto.URLimagen}}">
+		<div class="box-element product">
+			<h6><strong>{{producto.nombre}}</strong></h6>
+			<h6><strong>{{producto.categoria}}</strong></h6>
+			<hr>
+			<button  data-producto="{{producto.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Agregar al Carrito</button>
+			<h4 style="display: inline-block; float: right"><strong>${{producto.precio}}</strong></h4>
+	     </div>
+     </div>
+{% endfor %}
+</div>
+
+{% endblock content %}
